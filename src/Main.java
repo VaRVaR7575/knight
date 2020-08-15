@@ -1,13 +1,7 @@
-import equipment.MyArmorFactory;
-import equipment.Armor;
-import equipment.Legs;
-import equipment.Hands;
-import equipment.Body;
-import soorting.Sorting_Weight;
-import soorting.Sorting_price;
 import Knights.Human;
+import equipment.*;
+import service.Sorter;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,8 +19,7 @@ public class Main {
         List<Armor> armor = Arrays.asList(A10, A11, A12, A20, A21, A22, A30, A31, A32);
         Human human = new Human(25, "Talgat", A10, A20, A30 );
         System.out.println(human);
-        armor.sort(new Sorting_Weight());
-        System.out.println("Сортировка по ебучему весу: " + armor);
-        System.out.println("Сортировка по цене: " + Sorting_price.prices(armor, 1000, 7000));
+        System.out.println("Сортировка по ебучему весу: " + Sorter.sortByWeight(armor));
+        System.out.println("Сортировка по цене: " + Sorter.sortByPriceInRange(armor, 3000, 8000));
     }
 }
