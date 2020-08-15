@@ -1,9 +1,11 @@
 package equipment;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MyArmorFactory {
-    public static Armor create (String typeofArmor){
-        Armor armor = null;
+    public static Armor createArmorByType(String typeofArmor){
 
         switch (typeofArmor){
             case "A10": return new Body(5000,30,"Латы Путина");
@@ -20,7 +22,13 @@ public class MyArmorFactory {
             default: return null;
 
         }
+    }
 
-
+    public static Map<String, Armor> createSet (String... typesOfArmor) {
+        Map<String, Armor> armors = new HashMap<>();
+        for (String type : typesOfArmor) {
+            armors.put(type, createArmorByType(type));
+        }
+        return armors;
     }
 }
