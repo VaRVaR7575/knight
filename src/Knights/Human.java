@@ -1,6 +1,7 @@
 package Knights;
 
 
+import equipment.Armor;
 import equipment.Body;
 import equipment.Hands;
 import equipment.Legs;
@@ -14,12 +15,12 @@ public class Human {
     public Hands handss;
     public Legs legss;
 
-    public Human(int age, String name, Body bodies, Hands handss, Legs legss ) {
+    public Human(int age, String name, Armor bodies, Armor handss, Armor legss ) {
         this.age = age;
         this.name = name;
-        this.bodies = bodies;
-        this.handss = handss;
-        this.legss = legss;
+        this.bodies = (Body) bodies;
+        this.handss = (Hands) handss;
+        this.legss = (Legs) legss;
     }
 
     public String getName(){
